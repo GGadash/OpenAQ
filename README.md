@@ -1,1 +1,1 @@
-https://ggadash.github.io/CEA/OpenAQ/
+https://ggadash.github.io/OpenAQ/
