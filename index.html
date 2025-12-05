@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akila Jayasundara - Files for OpenAQ AP</title>
+    <style>
+        /* Root variables for consistent theming */
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --hover-bg: #334155;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 3rem 2rem;
+            font-size: 120%;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+        h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #94a3b8;
+            margin-bottom: 2em;
+            font-weight: 300;
+        }
+
+        /* File list container */
+        .file-list {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        /* Individual file items */
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem;
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .file-item:hover {
+            background: var(--hover-bg);
+            border-color: var(--accent-blue);
+            transform: translateX(8px);
+        }
+
+        /* File icon */
+        .file-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        /* File link styling */
+        .file-link {
+            flex: 1;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .file-name {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1em;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Color variations for different file types */
+        .file-item:nth-child(1) .file-name { color: var(--accent-blue); }
+        .file-item:nth-child(2) .file-name { color: var(--accent-green); }
+        .file-item:nth-child(3) .file-name { color: var(--accent-purple); }
+        .file-item:nth-child(4) .file-name { color: #f59e0b; }
+        .file-item:nth-child(5) .file-name { color: #ec4899; }
+
+        /* Description text */
+        .file-description {
+            font-size: 0.8em;
+            color: #94a3b8;
+            margin-top: 0.3em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #64748b;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Akila DJ - OpenAQ</h1>
+        <p class="subtitle">Modern File Directory Index</p>
+        
+        <div class="file-list">
+            <div class="file-item">
+                <div class="file-icon">📄</div>
+                <a href="/about.html" target="_blank" class="file-link" title="Learn more about this project and its documentation">
+                    <div class="file-name">about.html</div>
+                    <div class="file-description">Project documentation and information</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📝</div>
+                <a href="file.txt" target="_blank" class="file-link" title="Read the README file with installation and usage instructions">
+                    <div class="file-name">readme.txt</div>
+                    <div class="file-description">Getting started guide</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📊</div>
+                <a href="/report.pdf" target="_blank" class="file-link" title="View the comprehensive analysis report in PDF format">
+                    <div class="file-name">report.pdf</div>
+                    <div class="file-description">OpenAQ data analysis report</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">🖼️</div>
+                <a href="/visualization.jpg" target="_blank" class="file-link" title="View air quality visualization charts and graphs">
+                    <div class="file-name">visualization.jpg</div>
+                    <div class="file-description">Air quality data visualization</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">💾</div>
+                <a href="/data.json" target="_blank" class="file-link" title="Download raw JSON data from OpenAQ monitoring stations">
+                    <div class="file-name">data.json</div>
+                    <div class="file-description">Raw monitoring station data</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Modern Directory Index • OpenAQ Project</p>
+        </div>
+    </div>
+</body>
+</html>
