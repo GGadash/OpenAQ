@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akila Jayasundara - Files for OpenAQ AP</title>
+    <title>Akila Jayasundara, Sri Lanka - OpenAQ</title>
     <style>
         /* Root variables for consistent theming */
         :root {
@@ -13,6 +13,10 @@
             --accent-blue: #3b82f6;
             --accent-green: #10b981;
             --accent-purple: #8b5cf6;
+            --accent-orange: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --accent-red: #ef4444;
             --hover-bg: #334155;
         }
 
@@ -34,19 +38,32 @@
 
         /* Container for content */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         /* Header styles */
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
         h1 {
             font-size: 2.5em;
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.3em;
             background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+        }
+
+        .header-icon {
+            font-size: 1.2em;
         }
 
         .subtitle {
@@ -56,6 +73,103 @@
             font-weight: 300;
         }
 
+        /* Image gallery section */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            /* Modern border with gradient */
+            border: 3px solid transparent;
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent-blue), var(--accent-green)) border-box;
+            transition: all 0.3s ease;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Specific sizing for each image based on aspect ratio */
+        .image-card.img-1 {
+            flex: 0 1 calc(272px * 0.5); /* 544x732 at 50% */
+            max-width: 272px;
+        }
+
+        .image-card.img-2 {
+            flex: 0 1 calc(337.6px * 0.4); /* 844x926 at 40% */
+            max-width: 337.6px;
+        }
+
+        .image-card.img-3 {
+            flex: 0 1 calc(480px * 0.3); /* 1600x691 at 30% */
+            max-width: 480px;
+        }
+
+        .image-card:nth-child(2):hover {
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .image-card:nth-child(3):hover {
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .image-card:nth-child(2) {
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent-green), var(--accent-cyan)) border-box;
+        }
+
+        .image-card:nth-child(3) {
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent-purple), var(--accent-pink)) border-box;
+        }
+
+        .image-card:nth-child(4) {
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent-orange), var(--accent-red)) border-box;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .image-label {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            text-align: center;
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: var(--accent-blue);
+            font-size: 0.75em;
+            display: none;
+        }
+
+        .image-caption {
+            padding: 0.5rem 1rem;
+            background: rgba(15, 23, 42, 0.9);
+            font-size: 0.7em;
+            color: #94a3b8;
+            text-align: center;
+        }
+
         /* File list container */
         .file-list {
             background: rgba(30, 41, 59, 0.6);
@@ -63,6 +177,7 @@
             padding: 2rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(148, 163, 184, 0.1);
+            margin-bottom: 3rem;
         }
 
         /* Individual file items */
@@ -105,16 +220,17 @@
         .file-name {
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 1em;
-            color: var(--text-primary);
             font-weight: 500;
         }
 
         /* Color variations for different file types */
-        .file-item:nth-child(1) .file-name { color: var(--accent-blue); }
-        .file-item:nth-child(2) .file-name { color: var(--accent-green); }
-        .file-item:nth-child(3) .file-name { color: var(--accent-purple); }
-        .file-item:nth-child(4) .file-name { color: #f59e0b; }
-        .file-item:nth-child(5) .file-name { color: #ec4899; }
+        .color-blue { color: var(--accent-blue); }
+        .color-green { color: var(--accent-green); }
+        .color-purple { color: var(--accent-purple); }
+        .color-orange { color: var(--accent-orange); }
+        .color-pink { color: var(--accent-pink); }
+        .color-cyan { color: var(--accent-cyan); }
+        .color-red { color: var(--accent-red); }
 
         /* Description text */
         .file-description {
@@ -124,6 +240,106 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* QR Code section */
+        .qr-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .qr-card {
+            display: inline-block;
+            border-radius: 1rem;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)) border-box;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            max-width: 331.2px; /* 1104x1104 at 30% */
+        }
+
+        .qr-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .qr-card img {
+            display: block;
+            border-radius: 0.5rem;
+            width: 100%;
+            height: auto;
+        }
+
+        .qr-label {
+            margin-top: 1rem;
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.9em;
+            display: none;
+        }
+
+        /* Modal/Lightbox for full-size images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(239, 68, 68, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            background: rgba(239, 68, 68, 1);
+            transform: scale(1.1);
+        }
         /* Footer */
         .footer {
             text-align: center;
@@ -131,58 +347,196 @@
             color: #64748b;
             font-size: 0.8em;
         }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                font-size: 100%;
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2em;
+                flex-direction: column;
+            }
+
+            .image-gallery {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .image-card,
+            .image-card.img-1,
+            .image-card.img-2,
+            .image-card.img-3 {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .qr-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .image-card.img-1,
+            .image-card.img-2,
+            .image-card.img-3 {
+                flex: 1 1 45%;
+                max-width: 45%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Akila DJ - OpenAQ</h1>
-        <p class="subtitle">Modern File Directory Index</p>
+        <div class="header-section">
+            <h1><span class="header-icon">🌍</span>Akila Jayasundara, Sri Lanka - OpenAQ</h1>
+            <p class="subtitle">Air Quality Data & Research Repository</p>
+        </div>
+
+        <!-- Image Gallery Section -->
+        <div class="image-gallery">
+            <div class="image-card img-1" onclick="openModal('OpenAQ_Explorer_Sri-Lanka.png')" title="Click to Enlarge - OpenAQ in Sri Lanka">
+                <img src="OpenAQ_Explorer_Sri-Lanka.png" alt="OpenAQ Explorer interface showing air quality monitoring stations across Sri Lanka" title="Click to Enlarge - OpenAQ in Sri Lanka">
+                <div class="image-caption">OpenAQ Explorer - Sri Lanka (Only 1 Divice)</div>
+            </div>
+
+            <div class="image-card img-2" onclick="openModal('SL-Network-CEA.jpg')" title="Click to Enlarge - CEA Network">
+                <img src="SL-Network-CEA.jpg" alt="Central Environmental Authority air quality monitoring network map of Sri Lanka" title="Click to Enlarge - CEA Network">
+                <div class="image-caption">AiShare - National Air Quality Monitoring Network, Sri Lanka (Limited Coverage)</div>
+            </div>
+
+            <div class="image-card img-3" onclick="openModal('Fort_AQMS_Stage_2_Proposal.jpg')" title="Click to Enlarge - A Proposal">
+                <img src="Fort_AQMS_Stage_2_Proposal.jpg" alt="Technical proposal document for Fort Air Quality Monitoring Station Stage 2 implementation" title="Click to Enlarge - A Proposal">
+                <div class="image-caption">Fort AQMS Improvement - Stage 2 Proposal (No Success)</div>
+            </div>
+        </div>
+
+        <!-- Modal for full-size image view -->
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="Full size image">
+            </div>
+        </div>
         
+        <!-- File Links Section -->
         <div class="file-list">
             <div class="file-item">
-                <div class="file-icon">📄</div>
-                <a href="/about.html" target="_blank" class="file-link" title="Learn more about this project and its documentation">
-                    <div class="file-name">about.html</div>
-                    <div class="file-description">Project documentation and information</div>
-                </a>
-            </div>
-
-            <div class="file-item">
-                <div class="file-icon">📝</div>
-                <a href="file.txt" target="_blank" class="file-link" title="Read the README file with installation and usage instructions">
-                    <div class="file-name">readme.txt</div>
-                    <div class="file-description">Getting started guide</div>
-                </a>
-            </div>
-
-            <div class="file-item">
                 <div class="file-icon">📊</div>
-                <a href="/report.pdf" target="_blank" class="file-link" title="View the comprehensive analysis report in PDF format">
-                    <div class="file-name">report.pdf</div>
-                    <div class="file-description">OpenAQ data analysis report</div>
+                <a href="https://archive.org/download/report-2-detailed-air-quality-monitoring-report-for-jaffna-2025-q-1-draft-9-2025-05-21-pdf/Report%202%20-%20Detailed%20Air%20Quality%20Monitoring%20Report%20for%20Jaffna%20-%202025%20Q1%20-%20Draft%209%20-%202025-05-21%20-%20PDF.pdf" target="_blank" class="file-link" title="Sample Report - Detailed Air Quality Monitoring Report for Jaffna - 2025 Q1">
+                    <div class="file-name color-blue">Sample Report</div>
+                    <div class="file-description">Detailed Air Quality Monitoring Report for Jaffna - 2025 Q1</div>
                 </a>
             </div>
 
             <div class="file-item">
-                <div class="file-icon">🖼️</div>
-                <a href="/visualization.jpg" target="_blank" class="file-link" title="View air quality visualization charts and graphs">
-                    <div class="file-name">visualization.jpg</div>
-                    <div class="file-description">Air quality data visualization</div>
+                <div class="file-icon">🎓</div>
+                <a href="https://scholar.google.com/citations?user=5oNhc9wAAAAJ" target="_blank" class="file-link" title="Google Scholar profile with research publications and citations">
+                    <div class="file-name color-green">Research & Publications</div>
+                    <div class="file-description">Google Scholar Profile - Academic Research & Citations</div>
                 </a>
             </div>
 
             <div class="file-item">
-                <div class="file-icon">💾</div>
-                <a href="/data.json" target="_blank" class="file-link" title="Download raw JSON data from OpenAQ monitoring stations">
-                    <div class="file-name">data.json</div>
-                    <div class="file-description">Raw monitoring station data</div>
+                <div class="file-icon">🌐</div>
+                <a href="https://aq.cea.lk" target="_blank" class="file-link" title="AirShare - National Air Quality Network portal for real-time air quality data in Sri Lanka">
+                    <div class="file-name color-purple">AirShare - National Air Quality Network, Sri Lanka</div>
+                    <div class="file-description">Real-time Air Quality Monitoring Portal (aq.cea.lk)</div>
                 </a>
             </div>
+
+            <div class="file-item">
+                <div class="file-icon">📘</div>
+                <a href="https://www.cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf" target="_blank" class="file-link" title="Official guideline for calculating Air Quality Index in Sri Lanka">
+                    <div class="file-name color-orange">Air Quality Index for Sri Lanka: Calculation and Guideline (AQI-SL)</div>
+                    <div class="file-description">Official AQI Calculation Standards & Guidelines - CEA Sri Lanka</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">⚠️</div>
+                <a href="https://www.cea.lk/web/images/pdf/publication/air/CRAP-DAQ-SL_Contingency_Response_Action_Plan_for_Deterioration_of_Air_Quality_in_Sri_Lanka_V1.0-1.pdf" target="_blank" class="file-link" title="Contingency Response Action Plan for air quality deterioration events">
+                    <div class="file-name color-red">Contingency Response Action Plan for Deterioration of Air Quality in Sri Lanka (CRAP-DAQ-SL)</div>
+                    <div class="file-description">Emergency Response Protocol for Air Quality Events</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📄</div>
+                <a href="Submitted-Filled-Form_EPIC-Air-Quality-Fund-Application-2024_Google-Forms.pdf" target="_blank" class="file-link" title="EPIC Air Quality Fund Application submission form - No Success">
+                    <div class="file-name color-cyan">Submitted-Filled-Form_EPIC-Air-Quality-Fund-Application-2024_Google-Forms.pdf</div>
+                    <div class="file-description">EPIC Air Quality Fund Application 2024 - Filled - No Success</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📽️</div>
+                <a href="https://1drv.ms/p/c/ad0d8f70b7248179/IQBtYW1LdGNBRY8c4OZ89T6fAaSStXMDxDFABZnNnYjwVdU?e=NovBR1" target="_blank" class="file-link" title="Clean Air Week 2025 presentation on regional challenges and stakeholder support">
+                    <div class="file-name color-pink">Clean Air Week 2025 - Presentation (PPTX)</div>
+                    <div class="file-description">Existing Challenges and Support Needed from Regional Stakeholders</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📋</div>
+                <a href="Akila-Jayasundara_Sri-Lanka_Resume.pdf" target="_blank" class="file-link" title="Professional resume and curriculum vitae">
+                    <div class="file-name color-blue">Akila-Jayasundara_Sri-Lanka_Resume.pdf</div>
+                    <div class="file-description">Professional Resume / CV for OpenAQ (Submitted)</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">✍️</div>
+                <a href="Akila-Jayasundara_Sri-Lanka_Statement-of-Interest.pdf" target="_blank" class="file-link" title="Statement of Interest for OpenAQ">
+                    <div class="file-name color-green">Akila-Jayasundara_Sri-Lanka_Statement-of-Interest.pdf</div>
+                    <div class="file-description">Statement of Interest (SoI) for OpenAQ (Submitted)</div>
+                </a>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📇</div>
+                <a href="vCard_Akila-Jayasundara_CEA.LK.vcf" target="_blank" class="file-link" title="Digital contact card in vCard vcf file format">
+                    <div class="file-name color-purple">vCard_Akila-Jayasundara_CEA.LK.vcf</div>
+                    <div class="file-description">Digital Contact Card (vCard Format) File</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="qr-section">
+            <h2 style="margin-bottom: 1.5rem; color: var(--accent-cyan);">📱 Digital Contact</h2>
+            <div class="qr-card" onclick="openModal('QR-Code_vCard_Akila-Jayasundara_CEA.png')" style="cursor: pointer;" title="Click to Enlarge (not necessary though, just scan) - QR Code">
+                <img src="QR-Code_vCard_Akila-Jayasundara_CEA.png" alt="QR code for Akila Jayasundara vCard contact information" title="Click to Enlarge (not necessary though, just scan) - QR Code">
+            </div>
+            <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.9em;">Scan to add contact information</p>
         </div>
 
         <div class="footer">
-            <p>Modern Directory Index • OpenAQ Project</p>
+            <p>Akila Jayasundara • Air Quality • Central Environmental Authority • Sri Lanka</p>
         </div>
     </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
