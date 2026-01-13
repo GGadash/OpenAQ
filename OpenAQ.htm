@@ -118,9 +118,15 @@
         }
 
         .image-card.img-3 {
-            flex: 0 1 calc(480px * 0.3); /* 1600x691 at 30% */
+            flex: 0 1 calc(480px * 0.4); /* 1600x691 at 30% */
             max-width: 480px;
         }
+		
+		.image-card.img-4 {
+            flex: 0 1 calc(320px * 0.5); /* 855x839 at 40% */
+            max-width: 320px;
+        }
+
 
         .image-card:nth-child(2):hover {
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
@@ -369,7 +375,8 @@
             .image-card,
             .image-card.img-1,
             .image-card.img-2,
-            .image-card.img-3 {
+			.image-card.img-3,
+            .image-card.img-4 {
                 flex: 1 1 100%;
                 max-width: 100%;
             }
@@ -382,7 +389,8 @@
         @media (max-width: 1200px) and (min-width: 769px) {
             .image-card.img-1,
             .image-card.img-2,
-            .image-card.img-3 {
+			.image-card.img-3,
+            .image-card.img-4 {
                 flex: 1 1 45%;
                 max-width: 45%;
             }
@@ -392,7 +400,7 @@
 <body>
     <div class="container">
         <div class="header-section">
-            <h1><span class="header-icon">ðŸŒ</span>Akila Jayasundara, Sri Lanka for OpenAQ :)</h1>
+            <h1><span class="header-icon">🌍</span>Akila Jayasundara, Sri Lanka for OpenAQ :)</h1>
             <p class="subtitle">Resources, Files & Links... Repository</p>
         </div>
 
@@ -403,7 +411,7 @@
                 <div class="image-caption">OpenAQ Explorer - Sri Lanka (Only 1 Device). <br> One of my key goals is to improve the data availability of OpenAQ exploer in Sri Lanka</div>
             </div>
 
-			<div class="image-card img-1" onclick="openModal('GoogleMaps-AirQuality-Layer-Sri-Lanka_2026-01-10.png')" title="Click to Enlarge - Google Maps AQ Layer - Sri Lanka">
+			<div class="image-card img-4" onclick="openModal('GoogleMaps-AirQuality-Layer-Sri-Lanka_2026-01-10.png')" title="Click to Enlarge - Google Maps AQ Layer - Sri Lanka">
                 <img src="GoogleMaps-AirQuality-Layer-Sri-Lanka_2026-01-10.png" alt="Google Maps Air Quality Layer showing air quality around Sri Lanka" title="Click to Enlarge - Google Maps AQ - Sri Lanka">
                 <div class="image-caption">Google Maps AQ Layer - Sri Lanka (Limited Coverage). <br> I would eager to increase the data presense for the Air Quality Layer on Google Maps in Sri Lanka</div>
             </div>
@@ -431,7 +439,7 @@
 	
         <div class="file-list">
 					<div class="file-item">
-                <div class="file-icon">ðŸ“½ï¸</div>
+                <div class="file-icon">📽️</div>
                 <a href="https://1drv.ms/p/c/ad0d8f70b7248179/IQBtYW1LdGNBRY8c4OZ89T6fAaSStXMDxDFABZnNnYjwVdU?e=NovBR1" target="_blank" class="file-link" title="Clean Air Week 2025 presentation on regional challenges and stakeholder support">
                     <div class="file-name color-pink">Clean Air Week 2025 - Presentation (PPTX)</div>
                     <div class="file-description">Existing Challenges and Support Needed from Regional Stakeholders</div>
@@ -439,7 +447,7 @@
             </div>
 		
             <div class="file-item">
-                <div class="file-icon">ðŸ“Š</div>
+                <div class="file-icon">📊</div>
                 <a href="https://archive.org/download/report-2-detailed-air-quality-monitoring-report-for-jaffna-2025-q-1-draft-9-2025-05-21-pdf/Report%202%20-%20Detailed%20Air%20Quality%20Monitoring%20Report%20for%20Jaffna%20-%202025%20Q1%20-%20Draft%209%20-%202025-05-21%20-%20PDF.pdf" target="_blank" class="file-link" title="Sample Report - Detailed Air Quality Monitoring Report for Jaffna - 2025 Q1">
                     <div class="file-name color-green">Sample Air Quality Informational Report</div>
                     <div class="file-description">Detailed Generic Air Quality Monitoring Report for Jaffna - 2025 Q1</div>
@@ -447,7 +455,7 @@
             </div>
 
             <div class="file-item">
-                <div class="file-icon">ðŸŽ“</div>
+                <div class="file-icon">🎓</div>
                 <a href="https://scholar.google.com/citations?user=5oNhc9wAAAAJ" target="_blank" class="file-link" title="Google Scholar profile with research publications and citations">
                     <div class="file-name color-cyan">Research & Publications</div>
                     <div class="file-description">Google Scholar Profile - Academic Research & Citations</div>
@@ -455,7 +463,7 @@
             </div>
 			
             <div class="file-item">
-                <div class="file-icon">ðŸ“„</div>
+                <div class="file-icon">📄</div>
                 <a href="Submitted-Filled-Form_EPIC-Air-Quality-Fund-Application-2024_Google-Forms.pdf" target="_blank" class="file-link" title="EPIC Air Quality Fund Application submission form - No Success">
                     <div class="file-name color-purple">Submitted-Filled-Form_EPIC-Air-Quality-Fund-Application-2024_Google-Forms.pdf</div>
                     <div class="file-description">EPIC Air Quality Fund Application 2024 - Filled - No Success</div>
@@ -463,7 +471,7 @@
             </div>
 			
             <div class="file-item">
-                <div class="file-icon">ðŸŒ</div>
+                <div class="file-icon">🌐</div>
                 <a href="https://aq.cea.lk" target="_blank" class="file-link" title="AirShare - National Air Quality Network portal for real-time air quality data in Sri Lanka">
                     <div class="file-name color-orange">AirShare - National Air Quality Network, Sri Lanka</div>
                     <div class="file-description">Real-time Air Quality Monitoring Portal (aq.cea.lk)</div>
@@ -471,7 +479,7 @@
             </div>
 
             <div class="file-item">
-                <div class="file-icon">ðŸ“˜</div>
+                <div class="file-icon">📘</div>
                 <a href="https://www.cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf" target="_blank" class="file-link" title="Official guideline for calculating Air Quality Index in Sri Lanka">
                     <div class="file-name color-blue">Air Quality Index for Sri Lanka: Calculation and Guideline (AQI-SL)</div>
                     <div class="file-description">Official AQI Calculation Standards & Guidelines - CEA Sri Lanka</div>
@@ -479,7 +487,7 @@
             </div>
 
             <div class="file-item">
-                <div class="file-icon">âš ï¸</div>
+                <div class="file-icon">⚠️</div>
                 <a href="https://www.cea.lk/web/images/pdf/publication/air/CRAP-DAQ-SL_Contingency_Response_Action_Plan_for_Deterioration_of_Air_Quality_in_Sri_Lanka_V1.0-1.pdf" target="_blank" class="file-link" title="Contingency Response Action Plan for air quality deterioration events">
                     <div class="file-name color-red">Contingency Response Action Plan for Deterioration of Air Quality in Sri Lanka (CRAP-DAQ-SL)</div>
                     <div class="file-description">Emergency Response Protocol for Air Quality Events</div>
@@ -487,7 +495,7 @@
             </div>
 
             <div class="file-item">
-                <div class="file-icon">ðŸ“‹</div>
+                <div class="file-icon">📋</div>
                 <a href="Akila-Jayasundara_Sri-Lanka_Resume.pdf" target="_blank" class="file-link" title="Professional resume and curriculum vitae">
                     <div class="file-name color-blue">Akila-Jayasundara_Sri-Lanka_Resume.pdf</div>
                     <div class="file-description">Professional Resume / CV for OpenAQ (Submitted)</div>
@@ -495,7 +503,7 @@
             </div>
 			
             <div class="file-item">
-                <div class="file-icon">âœï¸</div>
+                <div class="file-icon">✍️</div>
                 <a href="Akila-Jayasundara_Sri-Lanka_Statement-of-Interest.pdf" target="_blank" class="file-link" title="Statement of Interest for OpenAQ">
                     <div class="file-name color-green">Akila-Jayasundara_Sri-Lanka_Statement-of-Interest.pdf</div>
                     <div class="file-description">Statement of Interest (SoI) for OpenAQ (Submitted)</div>
@@ -503,7 +511,7 @@
             </div>
 			
 			<div class="file-item">
-                <div class="file-icon">ðŸ“‹</div>
+                <div class="file-icon">📋</div>
                 <a href="Akila_Jayasundara_Sri_Lanka_Referees_OpenAQ.pdf" target="_blank" class="file-link" title="Professional Referees">
                     <div class="file-name color-cyan">Akila_Jayasundara_Sri_Lanka_Referees_OpenAQ.pdf</div>
                     <div class="file-description">Referees for OpenAQ (6 Environmental Professionals)</div>
@@ -513,7 +521,7 @@
 			
 
 <div class="file-item">
-<div class="file-icon">ðŸ’¼</div>
+<div class="file-icon">💼</div>
 <a href="https://www.linkedin.com/in/akiladj/" target="_blank" class="file-link" title="Connect on LinkedIn">
 <div class="file-name color-purple">LinkedIn Profile</div>
 <div class="file-description">LinkedIn Professional Network & Career Information (I am not active much in LinkedIn though!)</div>
@@ -521,7 +529,7 @@
 </div>
 			
             <div class="file-item">
-                <div class="file-icon">ðŸ“‡</div>
+                <div class="file-icon">📇</div>
                 <a href="vCard_Akila-Jayasundara_CEA.LK.vcf" target="_blank" class="file-link" title="Digital contact card in vCard vcf file format">
                     <div class="file-name color-teal">vCard_Akila-Jayasundara_CEA.LK.vcf</div>
                     <div class="file-description">Digital Contact Card (vCard Format) File</div>
@@ -531,7 +539,7 @@
 
         <!-- QR Code Section -->
         <div class="qr-section">
-            <h2 style="margin-bottom: 1.5rem; color: var(--accent-cyan);">ðŸ“± Digital Contact</h2>
+            <h2 style="margin-bottom: 1.5rem; color: var(--accent-cyan);">📱 Digital Contact</h2>
             <div class="qr-card" onclick="openModal('QR-Code_vCard_Akila-Jayasundara_CEA.png')" style="cursor: pointer;" title="Click to Enlarge (not necessary though, just scan) - QR Code">
                 <img src="QR-Code_vCard_Akila-Jayasundara_CEA.png" alt="QR code for Akila Jayasundara vCard contact information" title="Click to Enlarge (not necessary though, just scan) - QR Code">
             </div>
@@ -539,7 +547,7 @@
         </div>
 
         <div class="footer">
-            <p><a href="mailto:Akila@CEA.LK?subject=Hello_Akila_" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#64748b'">Akila Jayasundara â€¢ Air Quality â€¢ Central Environmental Authority â€¢ Sri Lanka</a></p>
+            <p><a href="mailto:Akila@CEA.LK?subject=Hello_Akila_" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#64748b'">Akila Jayasundara • Air Quality • Central Environmental Authority • Sri Lanka</a></p>
         </div>
     </div>
 
